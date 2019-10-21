@@ -1,1 +1,1 @@
-# goryuuo-discord-dice-bot
+# DICE Bot 0.1.0
