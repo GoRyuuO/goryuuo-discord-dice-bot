@@ -4,8 +4,10 @@ const bot = new Discord.Client()                    //เรียกใช้�
 //=========================================================================================
 //Variable
 
-token = process.env.TOKEN
-px = process.env.prefix
+//token = process.env.TOKEN
+//px = process.env.prefix
+var token = 'NjM1ODk5MjUxMzUxODc5Njgx.Xa3zKQ.2UWCdlu55T691gtAnb_UEb4rKQU';
+var prefix = '/';
 
 //=========================================================================================
 //Random function
@@ -18,20 +20,22 @@ bot.login(token)
 
 //แจ้งเตือนยัง Console Log เมื่อเริ่มทำงาน
 bot.on("ready", () => {
-    console.log("I'm Ready now!!")
+    console.log("The Dice Bot v0.1")
+    console.log('S A B E R Softwere 2019')
 })
 
 //=========================================================================================
 
 //ระบบสุ่มลูกเต๋า "/r <ครั้ง> d <ค่าสูงสุด>" => Rolled : <result_arr> | Sum : <Result>
 bot.on("message", (msg) => {
-    if (msg.content.startsWith(`${px}r`)) {
+    if (!msg.author) return;
+    if (msg.content.startsWith(`${prefix}r`)) {
         let roll = msg.content.split(" ")[1]
         if (!roll) return msg.channel.send("คำสั่งผิดพลาด")
 
         if (/d/gi.test(roll)) { //รับค่า
             if (/[0-9]+d[0-9]+/gi.test(roll)) {  // "/r 3d4"
-                let arr = roll.toLowerCase().split("d") 
+                let arr = roll.toLowerCase().split("d")
                 let result = 0
                 let result_arr = []
 
@@ -41,6 +45,8 @@ bot.on("message", (msg) => {
                     result_arr.push(temp)
                 }
                 msg.channel.send(`**Rolled** : ${result_arr.join(", ")} | **Sum** : ${result}`)
+            } else {
+                msg.channel.send("คำสั่งผิดพลาด");
             } 
         } else {
             msg.channel.send(`Rolled : ${Random_Num(1, roll)}`)
