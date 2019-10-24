@@ -5,9 +5,8 @@ const bot = new Discord.Client()                    //เรียกใช้�
 //Variable
 
 token = process.env.TOKEN;
-var prefix = '';
+var prefix = '/';
 
-//var token = '';
 //=========================================================================================
 //Random function
 function Random_Num (min, max) {
