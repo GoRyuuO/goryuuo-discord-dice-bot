@@ -25,7 +25,8 @@ client.on("ready", () => {
         .setFooter('Created by SABER')
         .setColor(0xffb399)
     ;
-    client.channels.get(annCh).send(`@everyone`,embed_ready)
+    client.channels.get(annCh).send(`@everyone`)
+    client.channels.get(annCh).send(embed_ready)
 })
 
 //=========================================================================================
